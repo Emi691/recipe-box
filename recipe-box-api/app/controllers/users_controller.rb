@@ -9,4 +9,10 @@ class UsersController < ApplicationController
             render json: { error: 'failed to create user'}, status: :signup_failed
         end 
     end
+
+    private
+
+    def user_params
+        params.require(:user).permit(:username, :password, :email)
+    end
 end
