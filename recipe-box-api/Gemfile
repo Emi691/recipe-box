@@ -28,6 +28,9 @@ gem 'rack-cors'
 # Allows quick generation of serializer classes to quickly and efficiently render JSON
 gem 'fast_jsonapi'
 
+#Allows usage of secure JSON Web token tokens for authentication
+gem 'jwt'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
