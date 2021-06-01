@@ -3,6 +3,10 @@ class ApplicationController < ActionController::API
     def encode_token(data)
         JWT.encode(data, 'secret')
     end
+    
+    def auth_header
+        request.headers['Authorization']
+    end
 
     def decode_token
         if auth_header
