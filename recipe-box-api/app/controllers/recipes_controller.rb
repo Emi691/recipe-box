@@ -33,4 +33,10 @@ class RecipesController < ApplicationController
         recipe.destroy
         render json { message: 'Recipe successfuly deleted' }
     end
+
+    private
+
+    def recipe_params
+        params.require(:recipe).permit(:title, :instructions, :photo)
+    end
 end
