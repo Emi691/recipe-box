@@ -12,6 +12,10 @@ class RecipesController < ApplicationController
 
     def create
         recipe = Recipe.create(recipe_params)
-        render json RecipeSerializer.new(recipe)
+        if recipe.valid?
+            render json RecipeSerializer.new(recipe)
+        else
+            remder json { message: 'Failed to create recipe'}
+        end
     end
 end
