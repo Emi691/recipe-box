@@ -9,4 +9,10 @@ class AuthController < ApplicationController
             render json: { message: 'Your username or password is incorrect' }, status: :log_in_failed
         end
     end
+
+    private
+    
+    def login_params
+        params.require(:user).permit(:username, :password)
+    end
 end
