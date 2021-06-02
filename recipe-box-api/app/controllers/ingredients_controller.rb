@@ -27,4 +27,10 @@ class IngredientsController < ApplicationController
             render json { message: 'Failed to update ingredient'}
         end  
     end
+
+    def delete
+        ingredient = Ingredient.find_by(id: ingredient_params.id)
+        ingredient.destroy
+        render json { message: 'Ingredient successfuly deleted' }
+    end
 end
