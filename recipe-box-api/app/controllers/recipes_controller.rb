@@ -15,7 +15,7 @@ class RecipesController < ApplicationController
         if recipe.valid?
             render json RecipeSerializer.new(recipe)
         else
-            remder json { message: 'Failed to create recipe'}
+            render json { message: 'Failed to create recipe'}
         end
     end
 

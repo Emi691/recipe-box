@@ -15,7 +15,16 @@ class IngredientsController < ApplicationController
         if ingredient.valid?
             render json IngredientSerializer.new(ingredient)
         else
-            remder json { message: 'Failed to create ingredient'}
+            render json { message: 'Failed to create ingredient'}
         end
+    end
+
+    def update
+        ingredient = Ingredient.find_by(id: ingredient_params.id)
+        if ingredient.update(ingredient_params)
+            render json IngredientSerializer.new(ingredient)
+        else
+            render json { message: 'Failed to update ingredient'}
+        end  
     end
 end
