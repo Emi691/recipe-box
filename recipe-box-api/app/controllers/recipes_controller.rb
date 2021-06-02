@@ -18,4 +18,13 @@ class RecipesController < ApplicationController
             remder json { message: 'Failed to create recipe'}
         end
     end
+
+    def update
+        recipe = Recipe.find_by(id: recipe_params.id)
+        if recipe.update(recipe_params)
+            render json RecipeSerializer.new(recipe)
+        else
+            remder json { message: 'Failed to update recipe'}
+        end  
+    end
 end
