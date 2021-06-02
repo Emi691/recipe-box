@@ -33,4 +33,10 @@ class IngredientsController < ApplicationController
         ingredient.destroy
         render json { message: 'Ingredient successfuly deleted' }
     end
+
+    private
+
+    def ingredient_params
+        params.require(:ingredient).permit(:name, :amount)
+    end
 end
