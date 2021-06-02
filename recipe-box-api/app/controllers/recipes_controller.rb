@@ -24,7 +24,13 @@ class RecipesController < ApplicationController
         if recipe.update(recipe_params)
             render json RecipeSerializer.new(recipe)
         else
-            remder json { message: 'Failed to update recipe'}
+            render json { message: 'Failed to update recipe'}
         end  
+    end
+
+    def delete
+        recipe = Recipe.find_by(id: recipe_params.id)
+        recipe.destroy
+        render json { message: 'Recipe successfuly deleted' }
     end
 end
