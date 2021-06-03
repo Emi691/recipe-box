@@ -1,13 +1,13 @@
-import React, { Componenent } from 'react'
+import React, { Component } from 'react'
 
-class RecipesContainer extends Componenent {
+class RecipesContainer extends Component {
 
-    render(){
+    render() {
         return(
             <div>
                 <p>RecipesContainer</p>
-                <RecipeInput/>
-                <Recipes/>
+                <RecipeInput />
+                <Recipes />
             </div>
         )
     }

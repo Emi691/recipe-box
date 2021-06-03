@@ -1,13 +1,13 @@
-import React, {Componenent} from 'react' 
+import React, {Component} from 'react' 
 
-class UsersContainer extends Componenent {
+class UsersContainer extends Component {
 
-    render(){
+    render() {
         return(
             <div>
                 <p>UsersContainer</p>
-                <Signup/>
-                <Login/>
+                <Signup />
+                <Login />
             </div>
         )
     }
