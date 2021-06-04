@@ -1,17 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Home from './components/Home'
 import UsersContainer from './containers/UsersContainer';
 import RecipesContainer from './containers/RecipesContainer';
-import IngredientsContainer from './containers/IngredientsContainer';
 
 function App() {
   return (
     <div className="App">
-      <Home />
-      <UsersContainer />
-      <RecipesContainer />
-      <IngredientsContainer />
+      <Router>
+      <Route exact path="/" component={Home}/>
+      <Route exact path="/login" component={UsersContainer} />
+      <Route exact path="/recipes" component={RecipesContainer} />
+      </Router>
     </div>
   );
 }
