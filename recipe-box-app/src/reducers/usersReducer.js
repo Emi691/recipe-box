@@ -1,4 +1,4 @@
-const userReducer = (state = [], action) => {
+const usersReducer = (state = [], action) => {
     switch (action.type) {
         case "ADD_USER":
             return [...state, action.user]
@@ -12,4 +12,4 @@ const userReducer = (state = [], action) => {
 }
     
 
-export default userReducer
+export default usersReducer

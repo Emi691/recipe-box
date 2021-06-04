@@ -1,4 +1,4 @@
-const ingredientReducer = (state = [], action) => {
+const ingredientsReducer = (state = [], action) => {
     switch (action.type) {
         case "ADD_RECIPE":
             return [...state, action.ingredient]
@@ -12,4 +12,4 @@ const ingredientReducer = (state = [], action) => {
 }
     
 
-export default ingredientReducer
+export default ingredientsReducer

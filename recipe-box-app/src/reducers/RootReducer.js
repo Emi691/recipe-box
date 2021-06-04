@@ -1,5 +1,12 @@
-const reducer = (state, action) => {
-    return state
-}
+import usersReducer from './usersReducer'
+import recipesReducer from './recipesReducer'
+import ingredientsReducer from "./ingredientsReducer"
+import { combineReducers } from 'redux'
 
-export default reducer
+const rootReducer = combineReducers({
+    users: usersReducer,
+    recipes: recipesReducer,
+    ingredients: ingredientsReducer
+})
+
+export default rootReducer

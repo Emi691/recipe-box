@@ -5,10 +5,10 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux'
 import './index.css';
 import App from './App';
-import RootReducer from './reducers/RootReducer'
+import rootReducer from './reducers/rootReducer'
 
 const store = createStore(
-  RootReducer,
+  rootReducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 )
 

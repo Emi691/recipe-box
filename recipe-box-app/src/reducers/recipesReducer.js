@@ -1,4 +1,4 @@
-const recipeReducer = (state = [], action) => {
+const recipesReducer = (state = [], action) => {
     switch (action.type) {
         case "ADD_RECIPE":
             return [...state, action.recipe]
@@ -12,4 +12,4 @@ const recipeReducer = (state = [], action) => {
 }
     
 
-export default recipeReducer
+export default recipesReducer
