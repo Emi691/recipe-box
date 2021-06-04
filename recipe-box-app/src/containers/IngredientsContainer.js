@@ -1,4 +1,6 @@
-import React, { Component } from 'react' 
+import React, { Component } from 'react'
+import IngredientInput from '../components/IngredientInput'
+import Ingredients from '../components/Ingredients' 
 
 class IngredientsContainer extends Component {
 
@@ -7,7 +9,7 @@ class IngredientsContainer extends Component {
             <div>
                 <p>IngredientsContainer</p>
                 <IngredientInput />
-                <Ingrendients />
+                <Ingredients />
             </div>
         )
     }
