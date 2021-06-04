@@ -1,7 +1,11 @@
 import React from 'react'
+import IngredientsContainer from '../containers/IngredientsContainer'
 
 const Recipe = () => (
-    <p>Recipe</p> 
+    <div>
+    <p>Recipe</p>
+    <IngredientsContainer /> 
+    </div>
 )
 
 export default Recipe
