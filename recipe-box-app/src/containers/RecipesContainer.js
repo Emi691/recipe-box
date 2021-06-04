@@ -1,20 +1,22 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import fetchRecipes from '../actions/fetchRecipes'
+import { fetchRecipes } from '../actions/fetchRecipes'
 import RecipeInput from '../components/RecipeInput'
 import Recipes from '../components/Recipes'
 
 class RecipesContainer extends Component {
+    
     componentDidMount() {
         fetchRecipes()
     }
 
     render() {
+        console.log(this.props.recipes)
         return(
             <div>
                 <p>RecipesContainer</p>
                 <RecipeInput />
-                <Recipes />
+                {/* <Recipes recipes={this.props.recipes} /> */}
             </div>
         )
     }
