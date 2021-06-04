@@ -1,10 +1,25 @@
-const recipesReducer = (state = [], action) => {
+const recipesReducer = (state = { recipes: [], requesting: false }, action) => {
     switch (action.type) {
+        case "LOADING_RECIPES":
+            return {
+                ...state,
+                recipes: [...state.recipes],
+                requesting: true
+            }
+
         case "ADD_RECIPE":
-            return [...state, action.recipe]
+            return {
+                ...state,
+                recipes: [...state.recipes, action.recipe],
+                requesting: false
+            }
 
         case "REMOVE_RECIPE":
-            return state.filter(recipe => recipe.id !== action.id)
+            return {
+                ...state,
+                recipes: state.recipes.filter(recipe => recipe.id !== action.id),
+                requesting: false
+            }
         
         default:
             return state
