@@ -8,9 +8,13 @@ const recipesReducer = (state = { recipes: [], requesting: false }, action) => {
             }
 
         case "ADD_RECIPES":
+            const recipes = action.recipes.map(recipe => {
+                return {id: recipe.id, title: recipe.attributes.title, instructions: recipe.attributes.instructions, photo: recipe.attributes.photo}
+            })
+
             return {
                 ...state,
-                recipes: [...state.recipes, ...action.recipes],
+                recipes: [...state.recipes, ...recipes],
                 requesting: false
             }
 

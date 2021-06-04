@@ -7,7 +7,7 @@ import Recipes from '../components/Recipes'
 class RecipesContainer extends Component {
     
     componentDidMount() {
-        fetchRecipes()
+        this.props.fetchRecipes()
     }
 
     render() {
@@ -16,7 +16,7 @@ class RecipesContainer extends Component {
             <div>
                 <p>RecipesContainer</p>
                 <RecipeInput />
-                {/* <Recipes recipes={this.props.recipes} /> */}
+                <Recipes recipes={this.props.recipes} />
             </div>
         )
     }
@@ -24,7 +24,7 @@ class RecipesContainer extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        recipes: state.recipes
+        recipes: state.recipes.recipes
     }
 }
 
