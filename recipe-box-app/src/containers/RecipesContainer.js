@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import RecipeInput from '../components/RecipeInput'
-import Recipes from '../components.Recipes'
+import Recipes from '../components/Recipes'
 
 class RecipesContainer extends Component {
 
