@@ -7,10 +7,10 @@ const recipesReducer = (state = { recipes: [], requesting: false }, action) => {
                 requesting: true
             }
 
-        case "ADD_RECIPE":
+        case "ADD_RECIPES":
             return {
                 ...state,
-                recipes: [...state.recipes, action.recipe],
+                recipes: [...state.recipes, action.recipes],
                 requesting: false
             }
 
