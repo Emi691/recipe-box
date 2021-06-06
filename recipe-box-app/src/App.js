@@ -1,6 +1,6 @@
 import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import Navbar from './Navbar'
+import NavBar from './Navbar'
 import Home from './components/Home'
 import UsersContainer from './containers/UsersContainer';
 import RecipesContainer from './containers/RecipesContainer';
@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       <Router>
         <div>
-          <Navbar />
+          <NavBar />
           <Route exact path="/" component={Home}/>
           <Route exact path="/login" component={UsersContainer} />
           <Route exact path="/recipes" component={RecipesContainer} />

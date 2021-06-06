@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Container } from 'react-bootstrap'
 import Recipe from './Recipe'
 
 class Recipes extends Component {
@@ -8,9 +9,9 @@ class Recipes extends Component {
     render() {
         console.log(this.props)
         return (
-            <div>
-                {this.renderRecipe()}
-            </div>
+            <Container className='mx-auto' >
+                    {this.renderRecipe()}
+            </Container>
         )
     }
 }
