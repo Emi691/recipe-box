@@ -12,11 +12,16 @@ class Login extends Component {
         })
     }
 
+    handleSubmit = (event) => {
+        event.preventDefault()
+        this.props.login(this.state)
+    }
+
     render(){
         return(
            <div>
             <h3>Log In</h3>
-            <form>
+            <form onSubmit={event => this.handleSubmit(event)}>
                 <div>
                     <label>Username: </label>
                     <input type="text" name="username" onChange={event => this.handleChange(event)} value={this.state.username}/>
