@@ -1,11 +1,11 @@
 const usersReducer = (state = [], action) => {
     switch (action.type) {
-        case "ADD_USER":
+        case "LOGIN":
             return [...state, action.user]
 
-        case "LOG_OUT":
-            return state.filter(user => user.id !== action.id)
-        
+        case "SIGNUP":
+            return [...state, action.user]
+            
         default:
             return state
     }
