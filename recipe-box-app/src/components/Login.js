@@ -17,6 +17,8 @@ class Login extends Component {
     handleSubmit = (event) => {
         event.preventDefault()
         this.props.login(this.state)
+        window.location.replace('http://localhost:3001/login')
+        // history.push('/recipes') 
     }
 
     render(){
