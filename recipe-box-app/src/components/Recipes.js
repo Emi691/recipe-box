@@ -4,7 +4,7 @@ import Recipe from './Recipe'
 
 class Recipes extends Component {
     
-    renderRecipe = () => this.props.recipes.map(recipe => <Recipe key={recipe.id} title={recipe.title} instructions={recipe.instructions} />)
+    renderRecipe = () => this.props.recipes.map(recipe => <Recipe key={recipe.id} title={recipe.title} photo={recipe.photo} />)
 
     render() {
         console.log(this.props)

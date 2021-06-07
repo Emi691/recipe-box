@@ -11,8 +11,9 @@ class RecipesController < ApplicationController
     end
 
     def create
-        recipe = Recipe.create(recipe_params)
-        if recipe.valid?
+        recipe = Recipe.new(recipe_params)
+        recipe.user = User.find_by(id: 1)
+        if recipe.save
             render json: RecipeSerializer.new(recipe)
         else
             render json: { message: 'Failed to create recipe'}

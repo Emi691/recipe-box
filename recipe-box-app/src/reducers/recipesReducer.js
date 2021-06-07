@@ -21,7 +21,7 @@ const recipesReducer = (state = { recipes: [], requesting: false }, action) => {
         case 'ADD_RECIPE':
             return {
                 ...state,
-                recipes: [...state.recipes, acion.recipe],
+                recipes: [...state.recipes, action.recipe],
                 requesting: false
             }
 

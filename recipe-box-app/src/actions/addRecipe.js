@@ -9,6 +9,9 @@ export function addRecipe(recipe) {
             body: JSON.stringify({recipe: recipe})
         })
             .then(resp => resp.json())
-            .then(recipe => dispatch({ type: 'ADD_RECIPE', recipe }))
+            .then(recipe => {
+                debugger
+                dispatch({ type: 'ADD_RECIPE', recipe: recipe.data.attributes })
+            })
     }
 }
