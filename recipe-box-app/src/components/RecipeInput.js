@@ -20,11 +20,8 @@ class RecipeInput extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        let data = {
-            recipe: {title: this.state.tile, instructions: this.state.instructions, photo: this.state.photo},
-            ingredient: {name: this.state.name, amount: this.state.amount}
-        }
-        this.props.addRecipe(data) 
+        let recipe = {recipe: {title: this.state.tile, instructions: this.state.instructions, photo: this.state.photo}, ingredient_attributes: {name: this.state.name, amount: this.state.amount}}
+        this.props.addRecipe(recipe) 
     }
 
     render() {

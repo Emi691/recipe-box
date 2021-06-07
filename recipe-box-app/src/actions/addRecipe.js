@@ -6,7 +6,7 @@ export function addRecipe(recipe) {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({recipe: recipe})
+            body: JSON.stringify(recipe)
         })
             .then(resp => resp.json())
             .then(recipe => {
