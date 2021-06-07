@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { addRecipe } from '../actions/addRecipe'
 
 class RecipeInput extends Component {
     state = {
@@ -21,6 +22,7 @@ class RecipeInput extends Component {
 
     render() {
         return (
+            <div>
             <form>
                 <div>
                     <label>Title: </label>
@@ -35,7 +37,9 @@ class RecipeInput extends Component {
                     <input type="password" name="photo" onChange={event => this.handleChange(event)} value={this.state.photo}/>
                 </div>
                 <input type="submit" value="Add Recipe"/>    
-            </form>    
+            </form>
+            <br/>  
+            </div>  
         )
     }
 }
