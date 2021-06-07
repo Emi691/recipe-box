@@ -1,10 +1,11 @@
 const usersReducer = (state = [], action) => {
     switch (action.type) {
         case "LOGIN_USER":
-            return [...state, action.user]
+            let login = {...action.user.attributes, id: action.user.id}
+            return [...state, login]
 
         case "SIGNUP":
-            const user = {...action.user.attributes, id: action.user.id}
+            let user = {...action.user.attributes, id: action.user.id}
             return [...state, user]
 
         default:

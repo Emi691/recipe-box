@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import { login } from '../actions/login'
 import { connect } from 'react-redux'
+import { Redirect } from 'react-router'
 
 class Login extends Component {
     state = {
@@ -16,14 +17,22 @@ class Login extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        this.props.login(this.state)
-        window.location.replace('http://localhost:3001/recipes')
-        // history.push('/recipes') 
+        this.props.login(this.state) 
+    }
+
+    isLoggedIn = () => {
+        if (localStorage.getItem('token')) {
+            return < Redirect to={{
+                pathname: './recipes'
+            }}
+            />
+        }
     }
 
     render(){
         return(
            <div>
+            {this.isLoggedIn()}
             <h3>Log In</h3>
             <form onSubmit={event => this.handleSubmit(event)}>
                 <div>

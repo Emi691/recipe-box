@@ -6,13 +6,10 @@ export function login(user) {
             },
             body: JSON.stringify({user: user})
         })
-        .then(resp => {
-            debugger
-            resp.json()
-        })
-        .then(user =>{
-            localStorage.setItem("token", user.jwt)
-            dispatch({ type: 'LOGIN_USER', user: user.data })
+        .then(resp => resp.json())
+        .then(userData =>{
+            localStorage.setItem("token", userData.jwt)
+            dispatch({ type: 'LOGIN_USER', user: userData.user.data })
         })
         .catch(error => console.log(error))
 }
