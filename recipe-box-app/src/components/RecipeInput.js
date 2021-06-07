@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import IngredientInput from './IngredientInput'
 import { addRecipe } from '../actions/addRecipe'
 
 class RecipeInput extends Component {
     state = {
         title: '',
         instructions: '',
-        photo: '' 
+        photo: '',
+        name: '',
+        amount: '',
     }
 
     handleChange = (event) => {
@@ -17,12 +20,18 @@ class RecipeInput extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        this.props.addRecipe(this.state) 
+        let data = {
+            recipe: {title: this.state.tile, instructions: this.state.instructions, photo: this.state.photo},
+            ingredient: {name: this.state.name, amount: this.state.amount}
+        }
+        this.props.addRecipe(data) 
     }
 
     render() {
+        console.log(this.state.amount)
         return (
             <div>
+            <h4>Add Recipe</h4>
             <form onSubmit={event => this.handleSubmit(event)}>
                 <div>
                     <label>Title: </label>
@@ -36,7 +45,17 @@ class RecipeInput extends Component {
                     <label>Photo Url: </label>
                     <input type="rext" name="photo" onChange={event => this.handleChange(event)} value={this.state.photo}/>
                 </div>
-                <input type="submit" value="Add Recipe"/>    
+                <label>Igredients:</label>
+                <div>
+                    <label>Name: </label>
+                    <input type="text" name="name" onChange={event => this.handleChange(event)} value={this.state.name}/>
+                </div>
+                <br/>
+                <div>
+                    <label>Amount: </label>
+                    <input type="text" name="amount" onChange={event => this.handleChange(event)} value={this.state.amount}/>
+                </div>
+                <input type="submit" value="Add Recipe"/> 
             </form>
             <br/>  
             </div>  
