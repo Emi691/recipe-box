@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
 class RecipeInput extends Component {
     state = {
@@ -39,4 +40,10 @@ class RecipeInput extends Component {
     }
 }
 
-export default RecipeInput
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addRecipe: (recipe) => dispatch(addRecipe(recipe))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(RecipeInput)
