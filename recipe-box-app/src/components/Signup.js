@@ -18,14 +18,14 @@ class Signup extends Component {
     handleSubmit = (event) => {
         event.preventDefault()
         this.props.signup(this.state)
-        window.location.replace('http://localhost:3001/recipes')
+        // window.location.replace('http://localhost:3001/recipes')
         // history.push('/recipes') 
     }
 
     render(){
         return(
            <div>
-            <h3>Log In</h3>
+            <h3>Sign Up</h3>
             <form onSubmit={event => this.handleSubmit(event)}>
                 <div>
                     <label>Username: </label>

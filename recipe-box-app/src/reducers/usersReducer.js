@@ -4,7 +4,8 @@ const usersReducer = (state = [], action) => {
             return [...state, action.user]
 
         case "SIGNUP":
-            return [...state, action.user]
+            const user = {...action.user.attributes, id: action.user.id}
+            return [...state, user]
 
         default:
             return state

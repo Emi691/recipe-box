@@ -5,9 +5,9 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save
             @token = encode_token(user_id: @user.id)
-            render json: { user: UserSerialiazer.new(@user), jwt: @token}, status: :signup_successful
+            render json: { user: UserSerializer.new(@user), jwt: @token}
         else
-            render json: { error: 'failed to create user'}, status: :signup_failed
+            render json: { error: 'failed to create user'}
         end 
     end
 
