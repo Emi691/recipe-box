@@ -7,9 +7,6 @@ const Recipe = (props) => (
         <Card.Img variant='top' src={props.image} alt="Image not Found"/>
         <Card.Body>
         <Card.Title>{props.title}</Card.Title>
-        <Card.Subtitle>Instructions</Card.Subtitle>
-        <Card.Text>{props.instructions}</Card.Text>
-        <IngredientsContainer /> 
         </Card.Body>
     </Card>
 )
