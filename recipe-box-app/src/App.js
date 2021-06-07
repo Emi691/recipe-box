@@ -5,6 +5,7 @@ import Home from './components/Home'
 import Signup from './components/Signup';
 import Login from './components/Login';
 import RecipesContainer from './containers/RecipesContainer';
+import FullRecipe from './components/FullRecipe';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/recipes" component={RecipesContainer} />
+          <Route path="recipes/:recipeId" component={FullRecipe} />
         </div>
       </Router>
     </div>
