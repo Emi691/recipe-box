@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Home = () => (
-    <p>Home</p> 
+    <h1>Recipe Box!</h1> 
 )
 
 export default Home

@@ -1,26 +1,48 @@
 import React, { Component } from 'react'
-import { Navbar, Nav, Button } from 'react-bootstrap'
+import { NavLink } from 'react-router-dom'
 import Logout from './components/Logout'
 
-class NavBar extends Component {
+const link = {
+    width: '100px',
+    padding: '10px',
+    margin: '0, 6px, 6px',
+    background: 'white',
+    color: 'black'
+
+    }
+    
+class Navbar extends Component {
+
     render() {
         return (
-            <Navbar>
-                <Navbar.Brand
-                href="/"
-                >Recipe Box</Navbar.Brand> 
-                <Nav.Link
-                    href="/recipes"
-                >Recipes</Nav.Link>
-                <Nav.Link
-                    href="/login"
-                >Login</Nav.Link>
-                <Button
-                    onClick={event => Logout()}
-                > Logout </Button>
-            </Navbar>
+            <div>
+                <NavLink
+                    to="/"
+                    exact
+                    style={link}
+                    activeStyle={{
+                        background: "pink"
+                    }}
+                >Home</NavLink>
+                <NavLink
+                    to="/about"
+                    exact
+                    style={link}
+                    activeStyle={{
+                        background: "pink"
+                    }}
+                >About</NavLink>
+                <NavLink
+                    to="/recipes"
+                    exact
+                    style={link}
+                    activeStyle={{
+                        background: "pink"
+                    }}
+                >Recipes</NavLink>
+            </div>
         )
     }
 }
 
-export default NavBar 
+export default Navbar 
