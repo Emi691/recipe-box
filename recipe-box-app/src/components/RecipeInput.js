@@ -20,8 +20,15 @@ class RecipeInput extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        let recipe = {recipe: {title: this.state.tile, instructions: this.state.instructions, photo: this.state.photo}, ingredient_attributes: {name: this.state.name, amount: this.state.amount}}
-        this.props.addRecipe(recipe) 
+        let recipe = {recipe: {title: this.state.title, instructions: this.state.instructions, photo: this.state.photo}, ingredient_attributes: {name: this.state.name, amount: this.state.amount}}
+        this.props.addRecipe(recipe)
+        this.setState({
+            title: '',
+            instructions: '',
+            photo: '',
+            name: '',
+            amount: '',
+        }) 
     }
 
     render() {
@@ -42,7 +49,7 @@ class RecipeInput extends Component {
                     <label>Photo Url: </label>
                     <input type="rext" name="photo" onChange={event => this.handleChange(event)} value={this.state.photo}/>
                 </div>
-                <label>Igredients:</label>
+                {/* <label>Igredients:</label>
                 <div>
                     <label>Name: </label>
                     <input type="text" name="name" onChange={event => this.handleChange(event)} value={this.state.name}/>
@@ -51,7 +58,7 @@ class RecipeInput extends Component {
                 <div>
                     <label>Amount: </label>
                     <input type="text" name="amount" onChange={event => this.handleChange(event)} value={this.state.amount}/>
-                </div>
+                </div> */}
                 <input type="submit" value="Add Recipe"/> 
             </form>
             <br/>  

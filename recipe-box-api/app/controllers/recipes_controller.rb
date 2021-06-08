@@ -13,7 +13,6 @@ class RecipesController < ApplicationController
     def create
         recipe = Recipe.new(recipe_params)
         recipe.user = User.find_by(id: 1)
-        binding.pry
         if recipe.save
             render json: RecipeSerializer.new(recipe)
         else
@@ -39,6 +38,6 @@ class RecipesController < ApplicationController
     private
 
     def recipe_params
-        params.require(:recipe).permit(:title, :instructions, :photo, :id, ingredient_attributes: [:name, :amount])
+        params.require(:recipe).permit(:title, :instructions, :photo, :id, ingredients_attributes: [:name, :amount])
     end
 end

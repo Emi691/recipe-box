@@ -14,7 +14,7 @@ class RecipesContainer extends Component {
         console.log(this.props.recipes)
         return(
             <div>
-                <p>RecipesContainer</p>
+                <br/>
                 <RecipeInput />
                 <Recipes recipes={this.props.recipes} />
             </div>

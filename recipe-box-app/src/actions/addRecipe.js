@@ -10,7 +10,6 @@ export function addRecipe(recipe) {
         })
             .then(resp => resp.json())
             .then(recipe => {
-                debugger
                 dispatch({ type: 'ADD_RECIPE', recipe: recipe.data.attributes })
             })
     }
