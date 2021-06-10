@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import IngredientInput from './IngredientInput'
 import { addRecipe } from '../actions/addRecipe'
+
+let ingredientsArray = []
 
 class RecipeInput extends Component {
     state = {
         title: '',
         instructions: '',
         photo: '',
-        name: '',
-        amount: '',
+        ingredients: [],
     }
 
     handleChange = (event) => {
@@ -20,15 +20,32 @@ class RecipeInput extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        let recipe = {recipe: {title: this.state.title, instructions: this.state.instructions, photo: this.state.photo}, ingredient_attributes: {name: this.state.name, amount: this.state.amount}}
-        this.props.addRecipe(recipe)
-        this.setState({
-            title: '',
-            instructions: '',
-            photo: '',
-            name: '',
-            amount: '',
-        }) 
+        console.log(this.state)
+    }
+    
+
+    renderIngredientForms() {
+        let ingredientForm = (
+            <>
+            <label>Name: </label>
+            <input type="text" name="name" onChange={event => this.handleChange(event)} value={this.state.name}/>
+            <br/>
+            <label>Amount: </label>
+            <input type="text" name="amount" onChange={event => this.handleChange(event)} value={this.state.amount}/>
+            <br/>
+            <button onClick={event => this.RemoveIngredient()}>
+               Remove Ingredient
+            </button>    
+            </>
+        ) 
+        ingredientsArray.push(ingredientForm)
+        console.log(ingredientsArray)
+        return ingredientsArray.map((ingredient) => <div>{ingredient}</div>)
+    }
+
+    addIngredient() {
+      this.renderIngredientForms()
+      this.setState({...this.state})
     }
 
     render() {
@@ -49,17 +66,15 @@ class RecipeInput extends Component {
                     <label>Photo Url: </label>
                     <input type="rext" name="photo" onChange={event => this.handleChange(event)} value={this.state.photo}/>
                 </div>
-                {/* <label>Igredients:</label>
-                <div>
-                    <label>Name: </label>
-                    <input type="text" name="name" onChange={event => this.handleChange(event)} value={this.state.name}/>
+                <div className="ingredients">
+                    <h5>Ingredients:</h5>
+                    {this.renderIngredientForms()}
+                    <br/>
+                    <button onClick={event => this.addIngredient()}>
+                       Add Ingredient
+                    </button>
                 </div>
-                <br/>
-                <div>
-                    <label>Amount: </label>
-                    <input type="text" name="amount" onChange={event => this.handleChange(event)} value={this.state.amount}/>
-                </div> */}
-                <input type="submit" value="Add Recipe"/> 
+                <input type="submit" value="Create Recipe"/> 
             </form>
             <br/>  
             </div>  
