@@ -8,7 +8,7 @@ class RecipeInput extends Component {
     state = {
         title: '',
         instructions: '',
-        photo: '',
+        photo: '', 
         ingredients: [{
             name: '',
             amount: ''
@@ -87,7 +87,7 @@ class RecipeInput extends Component {
                     <h5>Ingredients:</h5>
                     {this.state.ingredients.map((ingredient, index) => this.renderIngredientForm(index))}
                     <br/>
-                    <button onClick={event => this.addIngredient()}>
+                    <button type="button" onClick={event => this.addIngredient()}>
                        Add Ingredient
                     </button>
                 </div>
