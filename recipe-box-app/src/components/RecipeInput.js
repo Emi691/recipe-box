@@ -9,7 +9,10 @@ class RecipeInput extends Component {
         title: '',
         instructions: '',
         photo: '',
-        ingredients: [],
+        ingredients: [{
+            name: '',
+            amount: ''
+        }],
     }
 
     handleChange = (event) => {
@@ -20,36 +23,51 @@ class RecipeInput extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        console.log(this.state)
+        this.props.addRecipe(this.state)
     }
     
 
-    renderIngredientForms() {
-        let ingredientForm = (
+    renderIngredientForm(index) {
+        return(
             <>
+            <br/>
             <label>Name: </label>
-            <input type="text" name="name" onChange={event => this.handleChange(event)} value={this.state.name}/>
+            <input type="text" name="name" onChange={event => this.handleIngredientChange(event, index)} value={this.state.ingredients[index].name}/>
             <br/>
             <label>Amount: </label>
-            <input type="text" name="amount" onChange={event => this.handleChange(event)} value={this.state.amount}/>
+            <input type="text" name="amount" onChange={event => this.handleIngredientChange(event, index)} value={this.state.ingredients[index].amount}/>
             <br/>
-            <button onClick={event => this.RemoveIngredient()}>
+            <button onClick={event => this.removeIngredient(index)}>
                Remove Ingredient
-            </button>    
+            </button>
+            <br/>    
             </>
         ) 
-        ingredientsArray.push(ingredientForm)
-        console.log(ingredientsArray)
-        return ingredientsArray.map((ingredient) => <div>{ingredient}</div>)
+    }
+
+    handleIngredientChange(event, index) {
+        let ingredient = {
+            [event.target.name]: event.target.value
+        }
+
+        this.setState({
+            ingredients: this.state.ingredients.map((ing, i) => i === index ? {...ing, ...ingredient} : ing )
+        })
     }
 
     addIngredient() {
-      this.renderIngredientForms()
-      this.setState({...this.state})
+      this.setState({
+          ingredients: [...this.state.ingredients, {name: '', amount: ''}]
+      })
+    }
+
+    removeIngredient(index) {
+        this.setState({
+            ingredients: [...this.state.ingredients.filter((ingredient, i) => i !== index )]
+        })
     }
 
     render() {
-        console.log(this.state.amount)
         return (
             <div>
             <h4>Add Recipe</h4>
@@ -57,23 +75,23 @@ class RecipeInput extends Component {
                 <div>
                     <label>Title: </label>
                     <input type="text" name="title" onChange={event => this.handleChange(event)} value={this.state.title}/>
-                </div><br/>
-                <div>
+                <br/>
                     <label>Instructions: </label>
                     <input type="textarea" name="instructions" onChange={event => this.handleChange(event)} value={this.state.instructions}/>
-                </div><br/>
-                <div>
+                <br/>
                     <label>Photo Url: </label>
                     <input type="rext" name="photo" onChange={event => this.handleChange(event)} value={this.state.photo}/>
                 </div>
+                <br/>
                 <div className="ingredients">
                     <h5>Ingredients:</h5>
-                    {this.renderIngredientForms()}
+                    {this.state.ingredients.map((ingredient, index) => this.renderIngredientForm(index))}
                     <br/>
                     <button onClick={event => this.addIngredient()}>
                        Add Ingredient
                     </button>
                 </div>
+                <br/>
                 <input type="submit" value="Create Recipe"/> 
             </form>
             <br/>  

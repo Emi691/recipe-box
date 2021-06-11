@@ -20,7 +20,11 @@ class FullRecipe extends Component {
             )
         } else {
             return (
-                <p>Recipe not found! </p>
+                <div>
+                    <br/>
+                    <p>Recipe not found! </p>
+                </div>
+                
             )
         }
     }
