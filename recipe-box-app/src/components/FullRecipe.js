@@ -30,6 +30,7 @@ class FullRecipe extends Component {
     }
 
     render() {
+        console.log(this.props.ingredients)
         return (
             <div>
                 {this.renderRecipe()}
@@ -39,7 +40,7 @@ class FullRecipe extends Component {
     
 }
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
     return { 
         recipes: state.recipes.recipes, 
         ingredients: state.ingredients

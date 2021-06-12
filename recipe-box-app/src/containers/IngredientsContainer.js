@@ -3,11 +3,13 @@ import Ingredients from '../components/Ingredients'
 
 class IngredientsContainer extends Component {
 
-    render() {
+    render() { 
+        console.log(this.props.ingredients)
         return (
+           
             <div>
                 <p>IngredientsContainer</p>
-                <Ingredients />
+                <Ingredients ingredients = {this.props.ingredients}/>
             </div>
         )
     }

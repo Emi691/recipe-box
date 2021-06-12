@@ -3,8 +3,9 @@ const ingredientsReducer = (state = [], action) => {
         case "ADD_RECIPE":
             let ingredients = action.recipe.included.map(ingredient => {
                 return { 
+                id: ingredient.id,
                 ...ingredient.attributes,
-                id: ingredient.id
+                recipeId: action.recipe.data.id
                 } 
             })
             return [...state, ...ingredients]
