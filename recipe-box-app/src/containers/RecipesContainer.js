@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchRecipes } from '../actions/fetchRecipes'
+import { fetchIngredients } from '../actions/fetchIngredients'
 import RecipeInput from '../components/RecipeInput'
 import Recipes from '../components/Recipes'
 
@@ -8,10 +9,10 @@ class RecipesContainer extends Component {
     
     componentDidMount() {
         this.props.fetchRecipes()
+        this.props.fetchIngredients()
     }
 
     render() {
-        console.log(this.props.recipes)
         return(
             <div>
                 <br/>
@@ -30,7 +31,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchRecipes: () => dispatch(fetchRecipes())
+        fetchRecipes: () => dispatch(fetchRecipes()),
+        fetchIngredients: () => dispatch(fetchIngredients())
     }
 }
 
