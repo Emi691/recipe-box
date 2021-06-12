@@ -19,9 +19,13 @@ const recipesReducer = (state = { recipes: [], requesting: false }, action) => {
             }
         
         case 'ADD_RECIPE':
+            let recipe = {
+                ...action.recipe.data.attributes,
+                id: action.recipe.data.id
+            }
             return {
                 ...state,
-                recipes: [...state.recipes, action.recipe],
+                recipes: [...state.recipes, recipe],
                 requesting: false
             }
 

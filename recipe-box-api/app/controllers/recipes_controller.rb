@@ -14,7 +14,10 @@ class RecipesController < ApplicationController
         recipe = Recipe.new(recipe_params)
         recipe.user = User.find_by(id: 1)
         if recipe.save
-            render json: RecipeSerializer.new(recipe)
+            options = {
+                include: [:ingredients]
+            }
+            render json: RecipeSerializer.new(recipe, options)
         else
             render json: { message: 'Failed to create recipe'}
         end
