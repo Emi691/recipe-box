@@ -6,7 +6,7 @@ class IngredientsContainer extends Component {
     render() { 
         console.log(this.props.ingredients)
         return (
-            <Ingredients ingredients = {this.props.ingredients}/>
+            <Ingredients ingredients={this.props.ingredients}/>
         )
     }
 }

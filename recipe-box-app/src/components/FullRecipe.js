@@ -15,7 +15,7 @@ class FullRecipe extends Component {
                 <h4>Instructions: </h4>
                 <p>{recipe.instructions}</p>
                 <h4>Ingredients: </h4>
-                <IngredientsContainer ingredients = {this.props.ingredients.filter(ingredient => ingredient.recipeId === this.props.match.params.recipeId)}/> 
+                <IngredientsContainer ingredients = {this.props.ingredients.filter(ingredient => ingredient.recipe_id === this.props.match.params.recipeId)}/> 
                 </div>
             )
         } else {
@@ -30,7 +30,6 @@ class FullRecipe extends Component {
     }
 
     render() {
-        console.log(this.props.ingredients)
         return (
             <div>
                 {this.renderRecipe()}

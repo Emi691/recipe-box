@@ -5,7 +5,7 @@ const ingredientsReducer = (state = [], action) => {
                 return { 
                 id: ingredient.id,
                 ...ingredient.attributes,
-                recipeId: action.recipe.data.id
+                recipe_id: action.recipe.data.id
                 } 
             })
             return [...state, ...ingredients]
@@ -14,7 +14,8 @@ const ingredientsReducer = (state = [], action) => {
             let ingredientsList = action.ingredients.map(ingredient => {
                 return {
                     id: ingredient.id,
-                    ...ingredient.attributes
+                    ...ingredient.attributes,
+                    recipe_id: `${ingredient.attributes.recipe_id}`
                 }
             })
             return [...state, ...ingredientsList]

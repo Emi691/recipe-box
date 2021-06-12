@@ -4,7 +4,7 @@ import Ingredient from './Ingredient'
 class Ingredients extends Component {
 
     renderIngredients() {
-        this.props.ingredients.map(ingredient => <li><Ingredient key={ingredient.id} name={ingredient.name} amount={ingredient.amount}/></li>)
+        return this.props.ingredients.map(ingredient => <Ingredient key={ingredient.id} name={ingredient.name} amount={ingredient.amount}/>)
     }
 
     render() {

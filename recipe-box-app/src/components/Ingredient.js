@@ -1,7 +1,7 @@
 import React from 'react'
 
-const Ingredient = () => (
-    <p>{this.props.amount} - {this.props.name}</p> 
+const Ingredient = (props) => (
+    <li>{props.amount} - {props.name}</li> 
 )
 
 export default Ingredient
