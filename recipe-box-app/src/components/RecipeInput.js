@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { addRecipe } from '../actions/addRecipe'
 
-let ingredientsArray = []
-
 class RecipeInput extends Component {
     state = {
         title: '',
