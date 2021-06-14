@@ -12,6 +12,10 @@ class RecipesContainer extends Component {
         this.props.fetchIngredients()
     }
 
+    handleDelete = (event) => {
+        console.log(event.target)
+    }
+
     render() {
         return(
             <div>

@@ -15,8 +15,8 @@ class Recipes extends Component {
     renderRecipe = () => {
     if (this.state.search !== '') {
         let searchResults = this.props.recipes.filter(recipe => recipe.title.includes(this.state.search))
-        return searchResults.map(recipe => <Recipe key={recipe.id} id={recipe.id} title={recipe.title} photo={recipe.photo} />)
-    } else { return this.props.recipes.map(recipe => <Recipe key={recipe.id} id={recipe.id} title={recipe.title} photo={recipe.photo} />)}
+        return searchResults.map(recipe => <Recipe key={recipe.id} id={recipe.id} title={recipe.title} photo={recipe.photo} delete={this.props.delete} />)
+    } else { return this.props.recipes.map(recipe => <Recipe key={recipe.id} id={recipe.id} title={recipe.title} photo={recipe.photo} handleDelete={this.props.handleDelete} />)}
     }
 
     render() {

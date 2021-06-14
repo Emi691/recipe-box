@@ -7,6 +7,8 @@ const Recipe = (props) => (
         <Card.Img variant='top' src={props.photo} alt="Image not Found"/>
         <Card.Body>
         <Link to={`/recipes/${props.id}`}>{props.title}</Link>
+        <br/>
+        <button onClick={props.handleDelete} >delete</button>
         </Card.Body>
     </Card>
 )
