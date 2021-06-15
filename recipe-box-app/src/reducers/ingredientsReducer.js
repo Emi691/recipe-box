@@ -21,7 +21,7 @@ const ingredientsReducer = (state = [], action) => {
             return [...state, ...ingredientsList]
 
         case "REMOVE_RECIPE":
-            return state.filter(ingredient => ingredient.id !== action.id)
+            return { ...state.filter(ingredient => ingredient.recipe_id !== action.id) }
         
         default:
             return state

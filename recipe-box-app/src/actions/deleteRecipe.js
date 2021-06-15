@@ -4,9 +4,9 @@ export function deleteRecipe(id) {
             method: 'DELETE'
         })
             .then(resp => resp.json())
-            .then(recipe => {
-                debugger
-                dispatch({ type: 'REMOVE_RECIPE', recipe })
+            .then(response => {
+                dispatch({ type: 'REMOVE_RECIPE', id })
             })
+            .catch(error => alert('recipe could not be deleted'))
     }
 }
