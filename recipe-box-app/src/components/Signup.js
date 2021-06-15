@@ -33,6 +33,7 @@ class Signup extends Component {
     render(){
         return(
            <div>
+            <br/>
             {this.isLoggedIn()}
             <h3>Sign Up</h3>
             <form onSubmit={event => this.handleSubmit(event)}>

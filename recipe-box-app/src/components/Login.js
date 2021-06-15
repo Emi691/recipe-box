@@ -32,6 +32,7 @@ class Login extends Component {
     render(){
         return(
            <div>
+            <br/>
             {this.isLoggedIn()}
             <h3>Log In</h3>
             <form onSubmit={event => this.handleSubmit(event)}>

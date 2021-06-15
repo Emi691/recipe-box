@@ -40,6 +40,14 @@ class Navbar extends Component {
                         background: "pink"
                     }}
                 >Recipes</NavLink>
+                <NavLink
+                    to="/login"
+                    exact
+                    style={link}
+                    activeStyle={{
+                        background: "pink"
+                    }}
+                >Log In</NavLink>
             </div>
         )
     }
