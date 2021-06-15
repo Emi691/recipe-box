@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
-import Logout from './components/Logout'
+import { connect } from 'react-redux'
 
 const link = {
     width: '100px',
@@ -12,6 +12,14 @@ const link = {
     }
     
 class Navbar extends Component {
+
+    isLoggedIn = () => {
+        if (localStorage.getItem("token")) {
+            return "logout"
+        } else {
+            return "login"
+        }
+    }
 
     render() {
         return (
@@ -41,16 +49,22 @@ class Navbar extends Component {
                     }}
                 >Recipes</NavLink>
                 <NavLink
-                    to="/login"
+                    to={`/${this.isLoggedIn()}`}
                     exact
                     style={link}
                     activeStyle={{
                         background: "pink"
                     }}
-                >Log In</NavLink>
+                >{this.isLoggedIn()}</NavLink>
             </div>
         )
     }
 }
 
-export default Navbar 
+const mapStateToProps = (state) => {
+    return {
+        users: state.users
+    }
+}
+
+export default connect(mapStateToProps)(Navbar) 

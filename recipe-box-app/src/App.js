@@ -5,6 +5,7 @@ import Home from './containers/Home'
 import About from './components/About'
 import Signup from './components/Signup';
 import Login from './components/Login';
+import Logout from './components/Logout'
 import RecipesContainer from './containers/RecipesContainer';
 import FullRecipe from './components/FullRecipe';
 
@@ -18,6 +19,7 @@ function App() {
           <Route exact path="/about" component={About} />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/login" component={Login} />
+          <Route exact path="/logout" component={Logout} />
           <Route exact path="/recipes" component={RecipesContainer} />
           <Route path="/recipes/:recipeId" component={FullRecipe} />
         </div>

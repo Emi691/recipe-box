@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import { login } from '../actions/login'
 import { connect } from 'react-redux'
-import { Redirect } from 'react-router'
 
 class Login extends Component {
     state = {
@@ -20,12 +19,9 @@ class Login extends Component {
         this.props.login(this.state) 
     }
 
-    isLoggedIn = () => {
-        if (localStorage.getItem('token')) {
-            return < Redirect to={{
-                pathname: './recipes'
-            }}
-            />
+    componentDidUpdate = () => {
+        if (localStorage.getItem("token")) {
+        this.props.history.push("/recipes")
         }
     }
 
@@ -33,7 +29,6 @@ class Login extends Component {
         return(
            <div>
             <br/>
-            {this.isLoggedIn()}
             <h3>Log In</h3>
             <form onSubmit={event => this.handleSubmit(event)}>
                 <div>
@@ -58,4 +53,10 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(Login)
+const mapStateToProps = (state) => {
+    return {
+        users: state.users
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login)

@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import { signup } from '../actions/signup'
 import { connect } from 'react-redux'
-import { Redirect } from 'react-router'
 
 class Signup extends Component {
     state = {
@@ -21,12 +20,9 @@ class Signup extends Component {
         this.props.signup(this.state)
     }
 
-    isLoggedIn = () => {
-        if (localStorage.getItem('token')) {
-            return < Redirect to={{
-                pathname: './recipes'
-            }}
-            />
+    componentDidUpdate = () => {
+        if (localStorage.getItem("token")) {
+        this.props.history.push("/recipes")
         }
     }
 
@@ -34,7 +30,6 @@ class Signup extends Component {
         return(
            <div>
             <br/>
-            {this.isLoggedIn()}
             <h3>Sign Up</h3>
             <form onSubmit={event => this.handleSubmit(event)}>
                 <div>
@@ -63,5 +58,11 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(Signup)
+const mapStateToProps = (state) => {
+    return {
+        users: state.users
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Signup)
 

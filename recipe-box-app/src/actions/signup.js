@@ -7,7 +7,6 @@ export function signup(user) {
         body: JSON.stringify({user: user})
     }).then(resp => resp.json())
     .then(userData =>{ 
-        debugger
         localStorage.setItem("token", userData.jwt)
         dispatch({ type: 'SIGNUP', user: userData.user.data })
     })
