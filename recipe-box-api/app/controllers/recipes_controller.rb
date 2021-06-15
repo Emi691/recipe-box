@@ -32,8 +32,9 @@ class RecipesController < ApplicationController
         end  
     end
 
-    def delete
-        recipe = Recipe.find_by(id: recipe_params.id)
+    def destroy
+        binding.pry
+        recipe = Recipe.find_by(id: params[:id])
         recipe.destroy
         render json: { message: 'Recipe successfuly deleted' }
     end

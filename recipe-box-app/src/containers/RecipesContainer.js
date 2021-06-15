@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchRecipes } from '../actions/fetchRecipes'
 import { fetchIngredients } from '../actions/fetchIngredients'
+import { deleteRecipe } from '../actions/deleteRecipe'
 import RecipeInput from '../components/RecipeInput'
 import Recipes from '../components/Recipes'
 
@@ -12,8 +13,8 @@ class RecipesContainer extends Component {
         this.props.fetchIngredients()
     }
 
-    handleDelete = (event) => {
-        console.log(event.target)
+    handleDelete = (id) => {
+        this.props.deleteRecipe(id)
     }
 
     render() {
@@ -21,7 +22,7 @@ class RecipesContainer extends Component {
             <div>
                 <br/>
                 <RecipeInput />
-                <Recipes recipes={this.props.recipes} />
+                <Recipes recipes={this.props.recipes} handleDelete={this.handleDelete} />
             </div>
         )
     }
@@ -36,7 +37,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchRecipes: () => dispatch(fetchRecipes()),
-        fetchIngredients: () => dispatch(fetchIngredients())
+        fetchIngredients: () => dispatch(fetchIngredients()),
+        deleteRecipe: (id) => dispatch(deleteRecipe(id))
     }
 }
 

@@ -28,7 +28,7 @@ class IngredientsController < ApplicationController
         end  
     end
 
-    def delete
+    def destroy
         ingredient = Ingredient.find_by(id: ingredient_params.id)
         ingredient.destroy
         render json: { message: 'Ingredient successfuly deleted' }

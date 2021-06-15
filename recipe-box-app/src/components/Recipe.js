@@ -8,7 +8,7 @@ const Recipe = (props) => (
         <Card.Body>
         <Link to={`/recipes/${props.id}`}>{props.title}</Link>
         <br/>
-        <button onClick={props.handleDelete} >delete</button>
+        <button onClick={event => props.handleDelete(props.id)} >delete</button>
         </Card.Body>
     </Card>
 )
