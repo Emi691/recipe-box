@@ -13,6 +13,12 @@ class RecipesContainer extends Component {
         this.props.fetchIngredients()
     }
 
+    componentDidUpdate = () => {
+        if (!localStorage.getItem("token")) {
+            this.props.history.push('/login')
+        }
+    }
+
     handleDelete = (id) => {
         this.props.deleteRecipe(id)
     }

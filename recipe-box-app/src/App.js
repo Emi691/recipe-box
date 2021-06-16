@@ -5,7 +5,7 @@ import Home from './containers/Home'
 import About from './components/About'
 import Signup from './components/Signup';
 import Login from './components/Login';
-import Logout from './components/Logout'
+import Logout from './components/Logout';
 import RecipesContainer from './containers/RecipesContainer';
 import FullRecipe from './components/FullRecipe';
 

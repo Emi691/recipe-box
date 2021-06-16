@@ -4,6 +4,12 @@ import IngredientsContainer from '../containers/IngredientsContainer'
 
 class FullRecipe extends Component {
 
+    componentDidMount = () => {
+        if (!localStorage.getItem("token")) {
+            this.props.history.push('/login')
+        }
+    }
+
     renderRecipe = () => {
         let recipe = this.props.recipes.find(recipe => recipe.id === this.props.match.params.recipeId)
         if (recipe) {
