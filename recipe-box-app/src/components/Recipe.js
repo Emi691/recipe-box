@@ -4,8 +4,6 @@ import { Card } from 'react-bootstrap'
 
 class Recipe extends Component {
     render () {
-        console.log(localStorage.getItem('userId'))
-        console.log(this.props.user_id)
         if (parseInt(localStorage.getItem('userId')) === parseInt(this.props.user_id)) {
             return (
                 <Card style={{ width: '200px'}}>

@@ -12,5 +12,5 @@ export function login(user) {
             localStorage.setItem("userId", userData.user.data.id)
             dispatch({ type: 'LOGIN_USER', user: userData.user.data })
         })
-        .catch(error => console.log(error))
+        .catch(error => alert('incorrect username or password'))
 }
