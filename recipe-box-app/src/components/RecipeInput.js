@@ -23,6 +23,16 @@ class RecipeInput extends Component {
     handleSubmit = (event) => {
         event.preventDefault()
         this.props.addRecipe(this.state)
+        this.setState({
+            title: '',
+            instructions: '',
+            photo: '',
+            user_id: localStorage.getItem("userId"),  
+            ingredients: [{
+                name: '',
+                amount: ''
+            }],
+        })
     }
     
 
