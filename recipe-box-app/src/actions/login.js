@@ -9,6 +9,7 @@ export function login(user) {
         .then(resp => resp.json())
         .then(userData =>{
             localStorage.setItem("token", userData.jwt)
+            localStorage.setItem("userId", userData.user.data.id)
             dispatch({ type: 'LOGIN_USER', user: userData.user.data })
         })
         .catch(error => console.log(error))

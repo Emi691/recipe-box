@@ -11,13 +11,13 @@ export function addRecipe(recipe) {
                     title: recipe.title,
                     instructions: recipe.instructions,
                     photo: recipe.photo,
+                    user_id: recipe.user_id,
                     ingredients_attributes: recipe.ingredients
                 }
             })
         })
             .then(resp => resp.json())
             .then(recipe => {
-                debugger
                 dispatch({ type: 'ADD_RECIPE', recipe })
             })
     }

@@ -4,14 +4,15 @@ import { addRecipe } from '../actions/addRecipe'
 
 class RecipeInput extends Component {
     state = {
-        title: '',
-        instructions: '',
-        photo: '', 
-        ingredients: [{
-            name: '',
-            amount: ''
-        }],
-    }
+            title: '',
+            instructions: '',
+            photo: '',
+            user_id: localStorage.getItem("userId"),  
+            ingredients: [{
+                name: '',
+                amount: ''
+            }],
+        }
 
     handleChange = (event) => {
         this.setState({
