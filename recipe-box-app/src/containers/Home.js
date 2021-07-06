@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const Home = () => (
     <div>
     <br/>
-    <h1>Welcome to recipe Box!</h1>
+    <h1>Welcome to Recipe Box!</h1>
     <Link to="/signup" >Sign Up!</Link>
     <br/>
     <br/>

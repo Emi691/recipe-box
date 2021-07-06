@@ -12,7 +12,6 @@ class Recipes extends Component {
         })
     }
 
-
     renderRecipe = () => {
     if (this.state.search !== '') {
         let searchResults = this.props.recipes.filter(recipe => recipe.title.includes(this.state.search))

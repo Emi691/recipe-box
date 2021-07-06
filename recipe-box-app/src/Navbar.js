@@ -15,9 +15,9 @@ class Navbar extends Component {
 
     isLoggedIn = () => {
         if (localStorage.getItem("token")) {
-            return "logout"
+            return "Logout"
         } else {
-            return "login"
+            return "Login"
         }
     }
 
