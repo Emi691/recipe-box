@@ -9,8 +9,10 @@ import Recipes from '../components/Recipes'
 class RecipesContainer extends Component {
     
     componentDidMount() {
-        this.props.fetchRecipes()
-        this.props.fetchIngredients()
+        if(!this.props.recipes.length){
+            this.props.fetchRecipes()
+            this.props.fetchIngredients()
+        } 
     }
 
     componentDidUpdate = () => {
