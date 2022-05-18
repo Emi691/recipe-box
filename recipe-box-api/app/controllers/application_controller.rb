@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::API
-    # before_action :authorized
+    before_action :authorized
 
     def encode_token(data)
         JWT.encode(data, 'secret')
@@ -11,7 +11,7 @@ class ApplicationController < ActionController::API
 
     def decode_token
         if get_auth_header
-            token = auth_header.split(' ')[1]
+            token = get_auth_header
             begin
                 JWT.decode(token, 'secret')
             rescue JWT::DecodeError

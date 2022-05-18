@@ -4,7 +4,8 @@ export function addRecipe(recipe) {
         fetch('http://localhost:3000/recipes', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': localStorage.getItem('token')
             },
             body: JSON.stringify({
                 recipe: {

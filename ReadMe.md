@@ -1,4 +1,4 @@
-# My Travel Journal
+# Recipe Box
 
 Recipe Box is a SPA application which allows the user to create and store their favorite recipes online.
 
